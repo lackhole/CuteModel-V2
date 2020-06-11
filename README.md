@@ -4,6 +4,12 @@
 
 ## Guide
 
+0. Get tensorflow submodule
+    ```
+    > git submodule init
+    > git submodule update
+   ```
+
 1. Go to tensorflow directory
     ```
     > cd tensorflow
