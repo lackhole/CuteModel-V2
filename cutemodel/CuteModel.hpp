@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include "tensorflow/lite/c/common.h"
 #include "tensorflow/lite/c/builtin_op_data.h"

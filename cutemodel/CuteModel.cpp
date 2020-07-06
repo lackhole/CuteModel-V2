@@ -4,6 +4,7 @@
 
 #include "cutemodel/CuteModel.hpp"
 #include <sstream>
+#include <cstring>
 
 using namespace ct;
 
