@@ -11,35 +11,26 @@ CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
 
 ## Building from source
 
-0. Get tensorflow 
+1. Get tensorflow 
     ```
     > git clone https://github.com/tensorflow/tensorflow
    ```
 
-1. Go to tensorflow directory
-    ```
-    > cd tensorflow
+2. Download dependencies
    ```
-2. Update Tensorflow (if needed)
-    ```
-   > git fetch origin
-   > git pull
-   ```
-
-3. Download dependencies
-   ```
+   > cd tensorflow
    > ./tensorflow/lite/tools/make/download_dependencies.sh
    ```
 
-4. Set configuration
+3. Set configuration
     ```
    > ./configure
    ```
    * Follow it's instruction
    
-5. Install appropriate version of [bazel](https://docs.bazel.build/versions/master/install.html)
+4. Install appropriate version of [bazel](https://docs.bazel.build/versions/master/install.html)
 
-6. Build Libraries
+5. Build Libraries
     * [Platform config](https://github.com/tensorflow/tensorflow/blob/master/.bazelrc#L91)
         * Android arm64-v8a: `--config=android_arm64`
         * Android armeabi-v7a: `--config=android_arm`
@@ -70,7 +61,7 @@ CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
             bazel build -c opt --config=android_arm64 //tensorflow/lite/nnapi:nnapi_util
             ```
           
-7. Link built library and headers to `CuteModel` using CMakeLists.txt
+6. Link built library and headers to [CuteModel](https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel) using CMakeLists.txt
 
     ```
     tflite
@@ -117,8 +108,5 @@ CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
     ```
     
 
-8. Link `tflite` to your main CMake project.  
-
-9. Use `CuteModel` to build and run models.
-    * https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
+7. Link `tflite` to your main CMake project.  
     
