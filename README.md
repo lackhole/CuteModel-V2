@@ -1,13 +1,19 @@
-# Tensorflow-Lite
-* Guide &amp; Wrapper(CuteModel)
+# Tensorflow Lite C++ API
+ * Prebuilt Guide
+ * Building from source
 
 
-## Guide
+## Prebuilt Guide
 
-0. Get tensorflow submodule
+Select branch according to your platform.
+CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
+
+
+## Building from source
+
+0. Get tensorflow 
     ```
-    > git submodule init
-    > git submodule update
+    > git clone https://github.com/tensorflow/tensorflow
    ```
 
 1. Go to tensorflow directory
@@ -110,93 +116,9 @@
     )
     ```
     
-8. Set usage of `GPU` or `NNAPI` of `CuteModel` as you want
-    * CuteModel.hpp
-    ```
-    #define USE_GPU_DELEGATE 1
-    #define USE_NNAPI_DELEGATE 0
-    ```
-    
-9. Link `tflite` to your main CMake project.
 
-10. Use `CuteModel` to build and run models.
+8. Link `tflite` to your main CMake project.  
 
-    ```
-    #include "cutemodel/CuteModel.hpp"
-    ct::CuteModel model;
-    ```
-    
-    * Load Model
-        * From buffer
-        ```
-        model = ct::CuteModel(buffer, buffer_size); // build from buffer
-        ```
-        * From model file
-        ```
-        model = ct::CuteModel("models/my_custom_model.tflite"); build from file
-        ```
-    * Set run Options
-        * CPU
-        ```
-        model.setCpuNumThreads(2);
-        ```
-        * GPU
-        ```
-        model.setGpuDelegate();
-        model.setCpuNumThreads(2); // this won't affect the model
-        ```
-        * NNAPI
-        ```
-        model.setNnApiDelegate();
-        model.setCpuNumThreads(2); // this will affect the model if *disallow_nnapi_cpu* is set to true
-        ```
-    * Build interpreter
-    ```
-    model.buildInterpreter();
-    if(model.isBuilt(){
-        std::string info = model.summary();
-        std::string info_options = model.summarizeOptions(); // returns empty string if not using nnapi delegate
-    }
-    ```      
-
-    * Set input
-    ```
-    int data_1 = 3;
-    double *data_2 = { ... };
-    std::vector<float> data_3 = { ... };
-    
-    // sequence must be in order
-    model.setInput(&data_1, data_2, data_3.data());
-    ```
-    * Inference
-    ```
-    model.invoke();
-    ```
-    
-    * Get output
-        * Whole output
-        > ```
-        > std::vector<std::vector<float>> out = model.getOutput<float>();
-        > ```
-        > or
-        > ```
-        > std::vector<std::vector<float>> out;
-        > model.getOutput<float>(out);
-        > ```
-        >
-        > Warning: If the all outputs aren't same type, you should use below.
-      
-        * Specific output
-        > ```
-        > std::vector<float> out1 = model.getOutput<float>(0);
-        > std::vector<int> out2 = model.getOutput<int>(1);
-        > ```
-        > or
-        > ```
-        > std::vector<float> out;
-        > model.getOutput<float>(out, 0);
-        > ```
-        >
-        > Note: You can call `model.getOutput` multiple times.
-      
+9. Use `CuteModel` to build and run models.
+    * https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
     
