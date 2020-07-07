@@ -5,7 +5,7 @@
 
 ## Prebuilt Guide
 
-Select branch according to your platform.
+Select branch according to your platform.  
 CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
 
 
