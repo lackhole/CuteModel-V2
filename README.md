@@ -8,6 +8,13 @@
 Select branch according to your platform.  
 CuteModel usage: https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel
 
+```
+git clone https://github.com/lackhole/Tensorflow-Lite
+cd Tensorflow-Lite
+git checkout <branch>
+git submodule update --init --recursive
+```
+
 
 ## Building from source
 
