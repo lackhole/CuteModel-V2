@@ -68,7 +68,7 @@ git submodule update --init --recursive
             bazel build -c opt --config=android_arm64 //tensorflow/lite/nnapi:nnapi_util
             ```
           
-6. Link built library and headers to [CuteModel](https://github.com/visualcamp/Tensorflow-Lite/tree/cutemodel) using CMakeLists.txt
+6. Link built library and headers to [CuteModel](https://github.com/lackhole/CuteModel) using CMakeLists.txt
 
     ```
     tflite
