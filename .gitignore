@@ -1,3 +1,5 @@
-/.idea
-/venv
-/.DS_Store
+.idea
+*/venv
+.DS_Store
+
+*cmake-build-*
